@@ -61,7 +61,7 @@ CREATE TABLE cats (
 );
 ```
 
-Good work. Let's quit the SQL interface by typing: `.quit`. You'll be returned to the shell prompt. Now, type `ls` in the terminal and see what just happened. A new file should appear called `pets_database.db`! This is the binary representation of the database. You can think of this like a .jpg file. It won't open up in a text editor, but it does open up in the image viewer app. It is the same way for .db files. They won't open in your editor, but they can be read by the appropriate database engine.
+Good work. Let's quit the SQL interface by typing: `.quit`. You'll be returned to the shell prompt. Now, output the list of files (`ls` on Linux-based machines and `dir` on Windows-based machines) in the terminal and see what just happened. A new file should appear called `pets_database.db`! This is the binary representation of the database. You can think of this like a .jpg file. It won't open up in a text editor, but it does open up in the image viewer app. It is the same way for .db files. They won't open in your editor, but they can be read by the appropriate database engine.
 
 Let's add some cats to our `cats` table to make this more interesting:
 
