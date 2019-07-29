@@ -297,7 +297,7 @@ where we couldn't just tally up the number of cats *grouped by*
 breed? That's where — you guessed it! — `GROUP BY` comes in handy.
 
 ``` sql
-SELECT breed, COUNT(breed) FROM cats GROUP BY breed;
+SELECT breed COUNT(breed) FROM cats GROUP BY breed;
 ```
 
 This should return
@@ -315,7 +315,7 @@ GROUP BY is a great function for aggregating results into different
 segments — you can even use it on multiple columns!
 
 ```sql
-SELECT breed, owner_id, COUNT(breed) FROM cats GROUP BY breed, owner_id;
+SELECT breed, owner_id COUNT(breed) FROM cats GROUP BY breed, owner_id;
 ```
 
 ``` bash
