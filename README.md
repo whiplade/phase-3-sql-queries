@@ -169,7 +169,7 @@ specify though, we can use `ASC` for "ascending" or `DESC` for "descending."
 Let's try to select all of our cats and sort them by age in descending order.
 
 ```sql
-sqlite> SELECT * FROM cats ORDER BY age DESC;
+SELECT * FROM cats ORDER BY age DESC;
 ```
 
 This should return
@@ -418,7 +418,7 @@ CREATE TABLE dogs (
 ```
 
 ```sql
-sqlite> INSERT INTO dogs (name) VALUES ("Clifford");
+INSERT INTO dogs (name) VALUES ("Clifford");
 ```
 
 If we want to get the names of all the dogs and cats, we can no longer run a
