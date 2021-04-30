@@ -1,24 +1,19 @@
-# Basic SQL Queries
+# SQL Queries
 
-## Overview
+## Learning Goals
+
+- Define a query as an SQL statement that retrieves data from a database
+- Use the `ORDER BY` modifier to order tables by specific `SELECT` statements
+- Use the `ASC` and `DESC` modifiers to sort queries in ascending or descending order
+- Use the `LIMIT` modifier to determine the number of records to retrieve from a dataset
+- Use the `BETWEEN` modifier to retrieve records that contain a value that is within a given range
+- Use the `NULL` data type keyword to insert new records into a table
+- Use the `COUNT` function to count the number of records that meet a certain condition
+- Use the `GROUP BY` function to group your results according to the values in a given column
+
+## Introduction
 
 In this lesson, we'll cover how to write SQL queries to retrieve and add specific data to SQL database tables.
-
-## Objectives
-
-1. Define a query as an SQL statement that retrieves data from a database
-2. Use the `ORDER BY` modifier to order tables by specific `SELECT` statements
-3. Use the `ASC` and `DESC` modifiers to sort queries in ascending or descending
-   order
-4. Use the `LIMIT` modifier to determine the number of records to retrieve from
-   a dataset
-5. Use the `BETWEEN` modifier to retrieve records that contain a value that is
-   within a given range
-6. Use the `NULL` data type keyword to insert new records into a table
-7. Use the `COUNT` function to count the number of records that meet a certain
-   condition
-8. Use the `GROUP BY` function to group your results according to the values in
-   a given column
 
 ## What is a SQL Query?
 
