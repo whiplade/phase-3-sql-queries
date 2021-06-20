@@ -299,7 +299,7 @@ For now, we'll just focus on `COUNT`. `COUNT` will count the number of records
 that meet a certain condition. Here's a boilerplate SQL query using `COUNT`:
 
 ```sql
- "SELECT COUNT([column name]) FROM [table name] WHERE [column name] = [value]"
+SELECT COUNT([column name]) FROM [table name] WHERE [column name] = [value]
 ```
 
 Let's try it out and count the number of cats who have an `owner_id` of `1`:
