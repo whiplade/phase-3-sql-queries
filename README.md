@@ -182,8 +182,8 @@ id          name        age         breed       owner_id
 ### `LIMIT`
 
 What if we want the oldest cat? If we want to select extremes from a database
-table &mdash; for example, the employee with the highest paycheck or the patient
-with the most recent appointment &mdash; we can use `ORDER BY` in conjunction
+table — for example, the employee with the highest paycheck or the patient
+with the most recent appointment — we can use `ORDER BY` in conjunction
 with `LIMIT`.
 
 `LIMIT` is used to determine the number of records you want to return from a dataset. For example:
@@ -335,9 +335,9 @@ id          name        age         breed          owner_id
 ```
 
 Here, we can see at a glance that there are three tabby cats and one of every
-other breed &mdash; but what if we had a larger database where we couldn't
-easily see the number of cats *grouped by* breed? That's where &mdash; you
-guessed it! &mdash; `GROUP BY` comes in handy.
+other breed — but what if we had a larger database where we couldn't
+easily see the number of cats *grouped by* breed? That's where — you
+guessed it! — `GROUP BY` comes in handy.
 
 ``` sql
 SELECT breed, COUNT(breed) FROM cats GROUP BY breed;
@@ -355,7 +355,7 @@ Tabby               3
 ```
 
 GROUP BY is a great function for aggregating results into different segments
-&mdash; you can even use it on multiple columns!
+— you can even use it on multiple columns!
 
 ```sql
 SELECT breed, owner_id, COUNT(breed) FROM cats GROUP BY breed, owner_id;
