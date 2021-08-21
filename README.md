@@ -16,6 +16,9 @@
 In this lesson, we'll cover how to write SQL queries to retrieve and add
 specific data to SQL database tables.
 
+[Fork and clone this lesson](https://github.com/learn-co-curriculum/phase-3-sql-queries/fork)
+to follow along.
+
 ## What is a SQL Query?
 
 The term "query" refers to any SQL statement that **retrieves** data from your
@@ -93,7 +96,7 @@ Run the first two commands from the `sqlite3` prompt and then execute the above
 `SELECT` statement again and you should see something like this:
 
 ```txt
-id          name        age         breed          owner_id  
+id          name        age         breed          owner_id
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1
 2           Hana        1           Tabby          1
@@ -123,7 +126,7 @@ SELECT * FROM cats ORDER BY age;
 This should return the following:
 
 ```txt
-id          name        age         breed       owner_id  
+id          name        age         breed       owner_id
 ----------  ----------  ----------  ----------  ----------
 2           Hana        1           Tabby       1
 5           Patches     2           Calico
@@ -143,7 +146,7 @@ SELECT * FROM cats ORDER BY age DESC;
 This should return
 
 ```txt
-id          name        age         breed       owner_id  
+id          name        age         breed       owner_id
 ----------  ----------  ----------  ----------  ----------
 4           Moe         10          Tabby
 3           Lil\' Bub   5           American S
@@ -172,7 +175,7 @@ just the first, i.e. oldest, cat on the list.
 Execute the above statement in your terminal and you should see:
 
 ```txt
-id          name        age         breed       owner_id  
+id          name        age         breed       owner_id
 ----------  ----------  ----------  ----------  ----------
 4           Moe         10          Tabby
 ```
@@ -186,7 +189,7 @@ SELECT * FROM cats ORDER BY age DESC LIMIT 2;
 Execute that statement and you should see:
 
 ```txt
-id          name        age         breed       owner_id  
+id          name        age         breed       owner_id
 ----------  ----------  ----------  ----------  ----------
 4           Moe         10          Tabby
 3           Lil\' Bub   5           American S
@@ -233,7 +236,7 @@ INSERT INTO cats (name, age, breed) VALUES (NULL, NULL, "Tabby");
 Now, if we look at our `cats` data with `SELECT * FROM cats;`, we should see:
 
 ```txt
-id          name        age         breed          owner_id  
+id          name        age         breed          owner_id
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1
 2           Hana        1           Tabby          1
@@ -252,7 +255,7 @@ SELECT * FROM cats WHERE name IS NULL;
 This should return the following:
 
 ```txt
-id          name        age         breed       owner_id  
+id          name        age         breed       owner_id
 ----------  ----------  ----------  ----------  ----------
 6                                   Tabby
 ```
@@ -298,7 +301,7 @@ suggests, it groups your results by a given column.
 Let's take our table of cats
 
 ```txt
-id          name        age         breed          owner_id  
+id          name        age         breed          owner_id
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1
 2           Hana        1           Tabby          1
@@ -310,16 +313,16 @@ id          name        age         breed          owner_id
 
 Here, we can see at a glance that there are three tabby cats and one of every
 other breed — but what if we had a larger database where we couldn't
-easily see the number of cats *grouped by* breed? That's where — you
+easily see the number of cats _grouped by_ breed? That's where — you
 guessed it! — `GROUP BY` comes in handy.
 
-``` sql
+```sql
 SELECT breed, COUNT(breed) FROM cats GROUP BY breed;
 ```
 
 This should return
 
-``` txt
+```txt
 breed               COUNT(breed)
 ------------------  ------------
 American Shorthair  1
