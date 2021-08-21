@@ -13,11 +13,12 @@
 
 ## Introduction
 
-In this lesson, we'll cover how to write SQL queries to retrieve and add specific data to SQL database tables.
+In this lesson, we'll cover how to write SQL queries to retrieve and add
+specific data to SQL database tables.
 
 ## What is a SQL Query?
 
-The term "query" refers to any SQL statement that retrieves data from your
+The term "query" refers to any SQL statement that **retrieves** data from your
 database. In fact, we've already written a number of SQL queries using basic
 `SELECT` statements. We've already seen how to retrieve single units of data, or
 rows, with queries like these:
@@ -37,57 +38,29 @@ SELECT * FROM cats WHERE name = "Maru";
 What if, however, we wanted to select the oldest cat? Or all of the cats that
 don't currently belong to an owner? Or all of the cats with short names?
 
-Data storage isn't very useful if we can't manipulate, view, and analyze that
-data. Luckily for us, SQL is actually a powerful tool for doing just that.
+Data storage isn't very useful if we can't **manipulate**, **view**, and
+**analyze** that data. Luckily for us, SQL is actually a powerful tool for doing
+just that.
 
-In this exercise, we'll walk through executing a handful of common and handy SQL queries.
+In this exercise, we'll walk through executing a handful of common and handy SQL
+queries.
 
 ## Code Along: SQL Queries
 
 ### Creating our Database
 
-In this code along, we'll be creating a `cats` table in a `pets_database.db`.
-So, let's navigate to our terminal and get started.
+For this code along we have `pets_database.db` file with a `cats` table.
 
-First let's create our `pets_database` by running the following command.
+Just like with the last code along, you can run the SQL commands one of two
+ways, depending on your preference. You can either open the database using the
+`sqlite3` CLI, and run the SQL commands from the terminal:
 
-```bash
+```sh
 sqlite3 pets_database.db
 ```
 
-Now that we have a database, let's create our `cats` table along with `id`,
-`name`, `age`, `breed`, and `owner_id` columns.
-
-```sql
-CREATE TABLE cats (
-  id INTEGER PRIMARY KEY,
-  name TEXT,
-  age INTEGER,
-  breed TEXT,
-  owner_id INTEGER
-);
-```
-
-Good work. Let's quit the SQL interface by typing: `.quit`. You'll be returned
-to the shell prompt. Now, output the list of files (`ls` on Linux-based machines
-and `dir` on Windows-based machines) in the terminal and see what just happened.
-A new file should appear called `pets_database.db`! This is the binary
-representation of the database. You can think of this like a .jpg file. It won't
-open up in a text editor, but it does open up in the image viewer app. It is the
-same way for .db files. They won't open in your editor, but they can be read by
-the appropriate database engine.
-
-Let's add some cats to our `cats` table to make this more interesting. Get back
-to the `sqlite` prompt by running `sqlite3 pets_database.db` again. Then execute
-each of the following INSERT commands:
-
-```sql
-INSERT INTO cats (name, age, breed, owner_id) VALUES ("Maru", 3 , "Scottish Fold", 1);
-INSERT INTO cats (name, age, breed, owner_id) VALUES ("Hana", 1 , "Tabby", 1);
-INSERT INTO cats (name, age, breed) VALUES ("Lil\' Bub", 5, "American Shorthair");
-INSERT INTO cats (name, age, breed) VALUES ("Moe", 10, "Tabby");
-INSERT INTO cats (name, age, breed) VALUES ("Patches", 2, "Calico");
-```
+Or you can open the `pets_database.db` file in DB Browser for SQLite, and run
+the SQL commands from the "Execute SQL" tab.
 
 Let's check out our `cats` table now:
 
@@ -97,7 +70,7 @@ SELECT * FROM cats;
 
 This should return:
 
-```bash
+```txt
 1|Maru|3|Scottish Fold|1
 2|Hana|1|Tabby|1
 3|Lil\' Bub|5|American Shorthair|
@@ -105,10 +78,10 @@ This should return:
 5|Patches|2|Calico|
 ```
 
-**Top-Tip:** You can format the output of your select statements with a few
-helpful options:
+**Top-Tip:** In `sqlite3`, you can format the output of your select statements
+with a few helpful options:
 
-```sql
+```txt
 .headers on      # output the name of each column
 .mode column     # now we are in column mode, enabling us to run the next two .width commands
 .width auto      # adjusts and normalizes column width
@@ -116,10 +89,10 @@ helpful options:
 .width NUM1, NUM2 # customize column width
 ```
 
-Run the first two commands and then execute the above `SELECT` statement again
-and you should see something like this:
+Run the first two commands from the `sqlite3` prompt and then execute the above
+`SELECT` statement again and you should see something like this:
 
-```bash
+```txt
 id          name        age         breed          owner_id  
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1
@@ -149,7 +122,7 @@ SELECT * FROM cats ORDER BY age;
 
 This should return the following:
 
-```bash
+```txt
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
 2           Hana        1           Tabby       1
@@ -169,7 +142,7 @@ SELECT * FROM cats ORDER BY age DESC;
 
 This should return
 
-```bash
+```txt
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
 4           Moe         10          Tabby
@@ -198,11 +171,12 @@ just the first, i.e. oldest, cat on the list.
 
 Execute the above statement in your terminal and you should see:
 
-```bash
+```txt
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
 4           Moe         10          Tabby
 ```
+
 Let's get the two oldest cats:
 
 ```sql
@@ -211,7 +185,7 @@ SELECT * FROM cats ORDER BY age DESC LIMIT 2;
 
 Execute that statement and you should see:
 
-```bash
+```txt
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
 4           Moe         10          Tabby
@@ -237,7 +211,7 @@ SELECT name FROM cats WHERE age BETWEEN 1 AND 3;
 
 This should return:
 
-```bash
+```txt
 Maru
 Hana
 Patches
@@ -258,7 +232,7 @@ INSERT INTO cats (name, age, breed) VALUES (NULL, NULL, "Tabby");
 
 Now, if we look at our `cats` data with `SELECT * FROM cats;`, we should see:
 
-```bash
+```txt
 id          name        age         breed          owner_id  
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1
@@ -277,7 +251,7 @@ SELECT * FROM cats WHERE name IS NULL;
 
 This should return the following:
 
-```bash
+```txt
 id          name        age         breed       owner_id  
 ----------  ----------  ----------  ----------  ----------
 6                                   Tabby
@@ -310,7 +284,7 @@ SELECT COUNT(owner_id) FROM cats WHERE owner_id = 1;
 
 This should return:
 
-```bash
+```txt
 COUNT(owner_id)
 ---------------
 2
@@ -323,7 +297,7 @@ suggests, it groups your results by a given column.
 
 Let's take our table of cats
 
-```bash
+```txt
 id          name        age         breed          owner_id  
 ----------  ----------  ----------  -------------  ----------
 1           Maru        3           Scottish Fold  1
@@ -345,7 +319,7 @@ SELECT breed, COUNT(breed) FROM cats GROUP BY breed;
 
 This should return
 
-``` bash
+``` txt
 breed               COUNT(breed)
 ------------------  ------------
 American Shorthair  1
@@ -365,7 +339,7 @@ Below you can see that the cats are still grouped by breed but are also now
 further broken down by owner_id, so the two tabby cats without an owner_id are
 listed separately from the tabby who belongs to owner 1.
 
-```bash
+```txt
 breed               owner_id    COUNT(breed)
 ------------------  ----------  ------------
 American Shorthair              1
@@ -391,7 +365,7 @@ SELECT cats.name FROM cats;
 
 Both return:
 
-```bash
+```txt
 name
 ----------
 Maru
@@ -401,7 +375,8 @@ Moe
 Patches
 ```
 
-SQLite allows us to explicitly state the tableName.columnName we want to select. This is particularly useful when we want data from two different tables.
+SQLite allows us to explicitly state the `tableName.columnName` we want to
+select. This is particularly useful when we want data from two different tables.
 
 Imagine we have another table called `dogs` with a column for the dog names:
 
@@ -427,3 +402,12 @@ SELECT cats.name, dogs.name FROM cats, dogs;
 ```
 
 You may see this in the future. Don't let it trip you up.
+
+## Conclusion
+
+SQL gives you a lot of tools for fine-grained control over how to view data from
+various database tables. When you start working with larger databases that have
+5000 or 50,000 rows in a table instead of 5, having this level of control is
+crucial for accessing and analyzing data that's useful to your applications, and
+can help you improve your application's performance significantly by limiting
+the amount of data being returned.
