@@ -85,7 +85,7 @@ This should return:
 with a few helpful options:
 
 ```txt
-.headers no      # output the name of each column
+.headers on      # output the name of each column
 .mode column     # now we are in column mode, enabling us to run the next two .width commands
 .width auto      # adjusts and normalizes column width
 # or
